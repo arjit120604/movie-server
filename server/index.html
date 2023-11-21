@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Library</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <input type="text" id="username-input" placeholder="Enter username" />
+      <button id="login-button">Login</button>
+    </div>
+    <div class="library-container">
+      <h1>Welcome, <span id="username">USERNAME</span></h1>
+      <div class="genre-column" id="genre1">
+        <h2>Genre 1 <button class="add-button">Add</button></h2>
+        <div class="movies-list"></div>
+      </div>
+      <div class="genre-column" id="genre2">
+        <h2>Genre 2 <button class="add-button">Add</button></h2>
+        <div class="movies-list"></div>
+      </div>
+      <div class="genre-column" id="genre3">
+        <h2>Genre 3 <button class="add-button">Add</button></h2>
+        <div class="movies-list"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
