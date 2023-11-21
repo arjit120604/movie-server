@@ -27,10 +27,10 @@ const movieSchema = new mongoose.Schema({
   img: String,
 });
 
-const movies = [
-  { id: 1, name: "Pirate", genre: "thriller", Director: "william" },
-  { id: 2, name: "movie 3", genre: "romcom", Director: "john" },
-];
+// const movies = [
+//   { id: 1, name: "Pirate", genre: "thriller", Director: "william" },
+//   { id: 2, name: "movie 3", genre: "romcom", Director: "john" },
+// ];
 
 const Movie = mongoose.model("Movie", movieSchema);
 
@@ -52,7 +52,7 @@ const displayAllMovies = async () => {
     // connectToDatabase();
     const allMovies = await Movie.find({});
     console.log("All Movies:", allMovies);
-    return allMovies; // Return the movies array if you want to use it elsewhere
+    return allMovies;
   } catch (error) {
     console.error("Error fetching movies:", error);
   } finally {
@@ -115,7 +115,7 @@ const deleteMovieById = async (movieId) => {
     }
 
     console.log("Deleted Movie:", deletedMovie);
-    return deletedMovie; // Return the deleted movie object if you want to use it elsewhere
+    return deletedMovie;
   } catch (error) {
     console.error("Error deleting movie by ID:", error);
   } finally {
@@ -127,7 +127,6 @@ const deleteMovieById = async (movieId) => {
 const deleteMovieByName = async (movieName) => {
   try {
     // connectToDatabase();
-    // Delete the movie document by name from the "movies" collection
     const deletedMovie = await Movie.deleteOne({ name: movieName });
 
     if (!deletedMovie) {
@@ -136,7 +135,7 @@ const deleteMovieByName = async (movieName) => {
     }
 
     console.log("Deleted Movie by Name:", deletedMovie);
-    return deletedMovie; // Return the deleted movie object if you want to use it elsewhere
+    return deletedMovie;
   } catch (error) {
     console.error("Error deleting movie by name:", error);
   } finally {
@@ -148,10 +147,9 @@ const deleteMovieByName = async (movieName) => {
 const insertOneMovie = async (newMovie) => {
   try {
     // connectToDatabase();
-    // Create a new movie instance based on the provided details
+
     const movieInstance = new Movie(newMovie);
 
-    // Save the movie to the database
     const savedMovie = await movieInstance.save();
 
     console.log("Added Movie:", savedMovie);
@@ -167,7 +165,7 @@ const insertOneMovie = async (newMovie) => {
 const updateMovie = async (movieId, updatedMovieData) => {
   try {
     // connectToDatabase();
-    // Find the movie by ID and update its data
+
     const updatedMovie = await Movie.findByIdAndUpdate(
       movieId,
       updatedMovieData,
@@ -182,7 +180,7 @@ const updateMovie = async (movieId, updatedMovieData) => {
     }
 
     console.log("Updated Movie:", updatedMovie);
-    return updatedMovie; // Return the updated movie object if you want to use it elsewhere
+    return updatedMovie;
   } catch (error) {
     console.error("Error updating movie:", error);
   } finally {
