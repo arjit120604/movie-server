@@ -117,7 +117,6 @@ function App() {
         return;
       }
 
-      // Update state after successful deletion
       const updatedData = data.filter((movie) => movie._id !== id);
       setData(updatedData);
 
